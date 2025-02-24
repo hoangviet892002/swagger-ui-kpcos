@@ -968,52 +968,7 @@ paths:
                     $ref: "#/components/schemas/ErrorApi"
                     
   /projects/{id}/assignconsultant:
-    get:
-        tags:
-            - "Project"
-        summary: "Get consultant available"
-        description: "Retrieve a paginated list of consultant available, only administrator can get consultant available"
-        parameters:
-            - in: "path"
-              name: "id"
-              schema:
-                type: "string"
-              required: true
-              description: "Project id"
-            - in: "query"
-              name: "PageNumber"
-              schema:
-                type: "integer"
-              required: false
-              description: "Page number"
-            - in: "query"
-              name: "PageSize"
-              schema:
-                type: "integer"
-              required: false
-              description: "Page size"
-        responses:
-            '200':
-              description: "Success"
-              content:
-                application/json:
-                  schema:
-                    allOf:
-                    - $ref: "#/components/schemas/PaginatedResponse"
-                    - type: "object"
-                      properties:
-                        data:
-                          type: "array"
-                          items:
-                            $ref: "#/components/schemas/Staff"
-                    
-            '500':
-              description: "Error"
-              content:  
-                application/json:
-                  schema:
-                    $ref: "#/components/schemas/ErrorApi"
-        
+    
     post:
       tags:
         - "Project"
@@ -1151,7 +1106,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-
+  
     
     
   /staff:
@@ -1219,7 +1174,45 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-     
+  /staff/consultant:
+    get:
+      tags:
+        - "Staff"
+      summary: "Get all consultant available"
+      description: "Retrieve a paginated list of consultant available, only administrator can get consultant available"
+      parameters:
+        - in: "query"
+          name: "PageNumber"
+          schema:
+            type: "integer"
+          required: false
+          description: "Page number"
+        - in: "query"
+          name: "PageSize"
+          schema:
+            type: "integer"
+          required: false
+          description: "Page size"
+      responses:
+        '200':
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/PaginatedResponse"
+                  - type: "object"
+                    properties:
+                      data:
+                        type: "array"
+                        items:
+                          $ref: "#/components/schemas/Staff"
+        '500':
+          description: "Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApi"
   
 
 components:
