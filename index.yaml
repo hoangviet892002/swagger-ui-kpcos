@@ -9,7 +9,6 @@ servers:
   - url: "https://kpcos.vinhuser.one/api"
     description: "Production server"
 
-
 security:
   - bearerAuth: []
 tags:
@@ -32,12 +31,9 @@ tags:
   - name: "Staff"
     description: "Staff Management"
 
-
-
-
 paths:
   /auth/signin:
-    post:    
+    post:
       tags:
         - "Auth"
       summary: "Login"
@@ -49,7 +45,7 @@ paths:
             schema:
               $ref: "#/components/schemas/SigninPayload"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -60,7 +56,7 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/SigninResponse"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -79,7 +75,7 @@ paths:
             schema:
               $ref: "#/components/schemas/SignUpPayload"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -87,17 +83,15 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
+
   /equipments:
     post:
-      
-      
       tags:
         - "Equipment"
       summary: "Create equipment"
@@ -109,7 +103,7 @@ paths:
             schema:
               $ref: "#/components/schemas/EquimentCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -117,15 +111,13 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
     get:
-      
-      
       tags:
         - "Equipment"
       summary: "Get all equipment"
@@ -144,7 +136,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -157,17 +149,15 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/Equipment"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
+
   /equiments/{id}:
     get:
-      
-      
       tags:
         - "Equipment"
       summary: "Get equipment by id"
@@ -180,7 +170,7 @@ paths:
           required: true
           description: "Equipment id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -191,7 +181,7 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/Equipment"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -216,7 +206,7 @@ paths:
             schema:
               $ref: "#/components/schemas/EquimentCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -224,7 +214,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -243,7 +233,7 @@ paths:
           required: true
           description: "Equipment id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -251,7 +241,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -270,7 +260,7 @@ paths:
             schema:
               $ref: "#/components/schemas/PackageItemCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -278,15 +268,13 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
     get:
-      
-      
       tags:
         - "Package Item"
       summary: "Get all package item"
@@ -305,7 +293,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -318,17 +306,15 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/PackageItem"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
+
   /packageitems/{id}:
     get:
-      
-      
       tags:
         - "Package Item"
       summary: "Get package item by id"
@@ -341,7 +327,7 @@ paths:
           required: true
           description: "Package item id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -352,7 +338,7 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/PackageItem"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -377,7 +363,7 @@ paths:
             schema:
               $ref: "#/components/schemas/PackageItemCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -385,14 +371,13 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
     delete:
-      
       tags:
         - "Package Item"
       summary: "Delete package item"
@@ -405,7 +390,7 @@ paths:
           required: true
           description: "Package item id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -413,17 +398,15 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
+
   /packages:
     post:
-      
-      
       tags:
         - "Package"
       summary: "Create package"
@@ -435,7 +418,7 @@ paths:
             schema:
               $ref: "#/components/schemas/PackageCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -443,7 +426,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -468,7 +451,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -481,13 +464,13 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/Package"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
+
   /packages/{id}:
     get:
       tags:
@@ -502,7 +485,7 @@ paths:
           required: true
           description: "Package id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -513,13 +496,13 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/Package"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-    
+
     put:
       tags:
         - "Package"
@@ -539,7 +522,7 @@ paths:
             schema:
               $ref: "#/components/schemas/PackageCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -547,14 +530,13 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
     delete:
-      
       tags:
         - "Package"
       summary: "Delete package"
@@ -567,7 +549,7 @@ paths:
           required: true
           description: "Package id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -575,13 +557,13 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
+
   /services:
     post:
       tags:
@@ -595,7 +577,7 @@ paths:
             schema:
               $ref: "#/components/schemas/ServiceCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -603,7 +585,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -628,7 +610,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -641,7 +623,7 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/Service"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -661,7 +643,7 @@ paths:
           required: true
           description: "Service id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -672,7 +654,7 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/Service"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -697,7 +679,7 @@ paths:
             schema:
               $ref: "#/components/schemas/ServiceCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -705,7 +687,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -724,7 +706,7 @@ paths:
           required: true
           description: "Service id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -732,13 +714,13 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
+
   /templatecontructions:
     get:
       tags:
@@ -759,7 +741,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -772,9 +754,8 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/TemlateConstruction"
-        
-        
-        '500':
+
+        "500":
           description: "Error"
           content:
             application/json:
@@ -792,7 +773,7 @@ paths:
             schema:
               $ref: "#/components/schemas/TemplateConstructionCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -800,7 +781,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -820,7 +801,7 @@ paths:
           required: true
           description: "Template construction id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -831,7 +812,7 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/TemplateConstructionDetail"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -850,7 +831,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AddTemplateConstructionItem"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -858,7 +839,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -878,7 +859,7 @@ paths:
             schema:
               $ref: "#/components/schemas/ProjectCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -886,40 +867,40 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-    get:
+
         tags:
-            - "Project"
+          - "Project"
         summary: "Get all project for each role user"
         description: "Retrieve a paginate list of project for each role user.
-         Administrator can get all project, 
-         customer can get all project that they created, 
-         staff can get all project that they assigned."
+          Administrator can get all project,
+          customer can get all project that they created,
+          staff can get all project that they assigned."
         parameters:
-            - in: "query"
-              name: "PageNumber"
-              schema:
-                type: "integer"
-              required: false
-              description: "Page number"
-            - in: "query"
-              name: "PageSize"
-              schema:
-                type: "integer"
-              required: false
-              description: "Page size"
+          - in: "query"
+            name: "PageNumber"
+            schema:
+              type: "integer"
+            required: false
+            description: "Page number"
+          - in: "query"
+            name: "PageSize"
+            schema:
+              type: "integer"
+            required: false
+            description: "Page size"
         responses:
-            '200':
-              description: "Success"
-              content:
-                application/json:
-                  schema:
-                    allOf:
+          "200":
+            description: "Success"
+            content:
+              application/json:
+                schema:
+                  allOf:
                     - $ref: "#/components/schemas/PaginatedResponse"
                     - type: "object"
                       properties:
@@ -927,48 +908,86 @@ paths:
                           type: "array"
                           items:
                             $ref: "#/components/schemas/Project"
-            '500':
-              description: "Error"
-              content:
-                application/json:
-                  schema:
-                    $ref: "#/components/schemas/ErrorApi"
-  
-  
+          "500":
+            description: "Error"
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/ErrorApi"
+
+  /projects/consultation:
+    get:
+      tags:
+        - "Project"
+      summary: "Get all project for consultation with each Role user: Administrator, Customer, Staff Consultant"
+      description: "Retrieve a paginated list of project for consultation with each Role user: Administrator, Customer, Staff Consultant"
+      parameters:
+        - in: "query"
+          name: "PageNumber"
+          schema:
+            type: "integer"
+          required: false
+          description: "Page number"
+        - in: "query"
+          name: "PageSize"
+          schema:
+            type: "integer"
+          required: false
+          description: "Page size"
+      responses:
+        "200":
+          description: "Success"
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/PaginatedResponse"
+                  - type: "object"
+                    properties:
+                      data:
+                        type: "array"
+                        items:
+                          $ref: "#/components/schemas/Project"
+        "500":
+          description: "Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApi"
+
   /projects/{id}:
     get:
-        tags:
-            - "Project"
-        summary: "Get project by id"
-        description: "Retrieve a project by id"
-        parameters:
-            - in: "path"
-              name: "id"
+      tags:
+        - "Project"
+      summary: "Get project by id"
+      description: "Retrieve a project by id"
+      parameters:
+        - in: "path"
+          name: "id"
+          schema:
+            type: "string"
+          required: true
+          description: "Project id"
+      responses:
+        "200":
+          description: "Success"
+          content:
+            application/json:
               schema:
-                type: "string"
-              required: true
-              description: "Project id"
-        responses:
-            '200':
-              description: "Success"
-              content:
-                application/json:
-                  schema:
-                    allOf:
-                      - $ref: "#/components/schemas/ApiResponse"
-                      - type: "object"
-                        properties:
-                          data:
-                            $ref: "#/components/schemas/ProjectDetail"
-            '500':
-              description: "Error"
-              content:
-                application/json:
-                  schema:
-                    $ref: "#/components/schemas/ErrorApi"
-                    
+                allOf:
+                  - $ref: "#/components/schemas/ApiResponse"
+                  - type: "object"
+                    properties:
+                      data:
+                        $ref: "#/components/schemas/ProjectDetail"
+        "500":
+          description: "Error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorApi"
+
   /projects/{id}/assignconsultant:
-    
     post:
       tags:
         - "Project"
@@ -988,7 +1007,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssignConsultation"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -996,15 +1015,15 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-                  
+
   /projects/{id}/quotation:
-    get: 
+    get:
       tags:
         - "Project"
       summary: "Get quotation by project"
@@ -1029,7 +1048,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -1042,7 +1061,7 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/Quotation"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -1061,7 +1080,7 @@ paths:
             schema:
               $ref: "#/components/schemas/QuotationCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -1069,7 +1088,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -1089,7 +1108,7 @@ paths:
           required: true
           description: "Quotation id"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -1100,15 +1119,13 @@ paths:
                     properties:
                       data:
                         $ref: "#/components/schemas/QuotationDetail"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
-    
-    
+
   /staff:
     post:
       tags:
@@ -1122,7 +1139,7 @@ paths:
             schema:
               $ref: "#/components/schemas/StaffCreate"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -1130,7 +1147,7 @@ paths:
                 allOf:
                   - $ref: "#/components/schemas/ApiResponse"
                   - type: "object"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -1155,7 +1172,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -1168,7 +1185,7 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/Staff"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
@@ -1194,7 +1211,7 @@ paths:
           required: false
           description: "Page size"
       responses:
-        '200':
+        "200":
           description: "Success"
           content:
             application/json:
@@ -1207,21 +1224,20 @@ paths:
                         type: "array"
                         items:
                           $ref: "#/components/schemas/Staff"
-        '500':
+        "500":
           description: "Error"
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorApi"
-  
 
 components:
-  securitySchemes: 
+  securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      
+
   schemas:
     ApiResponse:
       type: "object"
@@ -1324,7 +1340,7 @@ components:
         password:
           type: "string"
           example: "guest123"
-        address: 
+        address:
           type: "string"
           example: "HCM"
         dob:
@@ -1446,7 +1462,7 @@ components:
               description:
                 type: "string"
                 example: "Description 1"
-    
+
     Service:
       type: "object"
       properties:
@@ -1506,7 +1522,7 @@ components:
           example: "Description 1"
         isActive:
           type: "boolean"
-          example: true   
+          example: true
     TemplateConstructionCreate:
       type: "object"
       properties:
@@ -1540,7 +1556,7 @@ components:
                     example: "Description 1"
                   isActive:
                     type: "boolean"
-                    example: true  
+                    example: true
     AddTemplateConstructionItem:
       type: "object"
       properties:
@@ -1558,145 +1574,219 @@ components:
           nullable: true
           example: 1
     ProjectCreate:
-        type: "object"
-        properties:
-            customerName:
-                type: "string"
-                example: "Customer 1"
-            address:
-                type: "string"
-                example: "HCM"
-            phone:
-                type: "string"
-                example: "0123456789"
-            email:
-                type: "string"
-                example: ""
-            area:
-                type: "number"
-                example: 100
-            depth:
-                type: "number"
-                example: 100
-            packageId:
-                type: "string"
-                example: 1
-            note:
-                type: "string"
-                example: "Note 1"
-            templatedesignid: 
-                type: "string"
-                nullable: true
-                example: 1
-          
+      type: "object"
+      properties:
+        customerName:
+          type: "string"
+          example: "Customer 1"
+        address:
+          type: "string"
+          example: "HCM"
+        phone:
+          type: "string"
+          example: "0123456789"
+        email:
+          type: "string"
+          example: ""
+        area:
+          type: "number"
+          example: 100
+        depth:
+          type: "number"
+          example: 100
+        packageId:
+          type: "string"
+          example: 1
+        note:
+          type: "string"
+          example: "Note 1"
+        templatedesignid:
+          type: "string"
+          nullable: true
+          example: 1
+
     Project:
-        type: "object"
-        properties:
-            id:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          example: 1
+        customerName:
+          type: "string"
+          example: "Customer 1"
+        address:
+          type: "string"
+          example: "HCM"
+        phone:
+          type: "string"
+          example: "0123456789"
+        email:
+          type: "string"
+          example: ""
+        area:
+          type: "number"
+          example: 100
+        depth:
+          type: "number"
+          example: 100
+        packageName:
+          type: "string"
+          example: 1
+        standOut:
+          type: "boolean"
+          example: true
+        note:
+          type: "string"
+          example: "Note 1"
+        status:
+          type: "string"
+          example: "PENDING"
+        createdDate:
+          type: "string"
+          example: "2021-01-01"
+        updatedDate:
+          type: "string"
+          example: "2021-01-01"
+    ProjectDetail:
+      allOf:
+        - $ref: "#/components/schemas/Project"
+        - type: "object"
+          properties:
+            staff:
+              type: array
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "string"
+                    example: 1
+                  fullName:
+                    type: "string"
+                    example: "Staff 1"
+                  email:
+                    type: "string"
+                    example: ""
+                  position:
+                    type: "string"
+                    example: "Staff"
+            packageDetail:
+              type: "object"
+              properties:
+                id:
+                  type: "string"
+                  example: 1
+                name:
+                  type: "string"
+                  example: "Package 1"
+                description:
+                  type: "string"
+                  example: "Description 1"
+                isActive:
+                  type: "boolean"
+                  example: true
+                price:
+                  type: "array"
+                  items:
+                    type: "integer"
+                  example: [100, 200, 300]
+                items:
+                  type: "array"
+                  items:
+                    type: "object"
+                    properties:
+                      idPackageItem:
+                        type: "string"
+                        example: 1
+                      quantity:
+                        type: "number"
+                        example: 1
+                      description:
+                        type: "string"
+                        example: "Description 1"
+                      name:
+                        type: "string"
+                        example: "Package Item 1"
+
+    QuotationCreate:
+      type: "object"
+      properties:
+        projectId:
+          type: "string"
+          example: 1
+        templateConstructionId:
+          type: "string"
+          example: 1
+        services:
+          type: array
+          items:
+            type: "object"
+            properties:
+              id:
                 type: "string"
                 example: 1
-            customerName:
-                type: "string"
-                example: "Customer 1"
-            address:
-                type: "string"
-                example: "HCM"
-            phone:
-                type: "string"
-                example: "0123456789"
-            email:
-                type: "string"
-                example: ""
-            area:
+              quantity:
                 type: "number"
-                example: 100
-            depth:
-                type: "number"
-                example: 100
-            packageName:
-                type: "string"
                 example: 1
-            note:
+              note:
                 type: "string"
                 example: "Note 1"
-            status:
+              category:
                 type: "string"
-                example: "PENDING"
-            createdDate:
-                type: "string"
-                example: "2021-01-01"
-            updatedDate:
-                type: "string"
-                example: "2021-01-01"
-    ProjectDetail:
-        allOf:
-            - $ref: "#/components/schemas/Project"
-            - type: "object"
-              properties:
-                    staff:
-                        type: array
-                        items:
-                            type: "object"
-                            properties:
-                                id:
-                                    type: "string"
-                                    example: 1
-                                fullName:
-                                    type: "string"
-                                    example: "Staff 1"
-                                email:
-                                    type: "string"
-                                    example: ""
-                                position:
-                                    type: "string"
-                                    example: "Staff"
-                    packageDetail :
-                        type: "object"
-                        properties:
-                            id:
-                                type: "string"
-                                example: 1
-                            name:
-                                type: "string"
-                                example: "Package 1"
-                            description:
-                                type: "string"
-                                example: "Description 1"
-                            isActive:
-                                type: "boolean"
-                                example: true
-                            price:
-                                type: "array"
-                                items:
-                                    type: "integer"
-                                example: [100, 200, 300]
-                            items:
-                                type: "array"
-                                items:
-                                    type: "object"
-                                    properties:
-                                        idPackageItem:
-                                            type: "string"
-                                            example: 1
-                                        quantity:
-                                            type: "number"
-                                            example: 1
-                                        description:
-                                            type: "string"
-                                            example: "Description 1"
-                                        name:
-                                            type: "string"
-                                            example: "Package Item 1"
-                                            
-    QuotationCreate:
-        type: "object"
-        properties:
-            projectId:
+                example: "Category 1"
+        equipments:
+          type: array
+          items:
+            type: "object"
+            properties:
+              id:
                 type: "string"
                 example: 1
-            templateConstructionId:
-                type: "string"
+              quantity:
+                type: "number"
                 example: 1
+              note:
+                type: "string"
+                example: "Note 1"
+              price:
+                type: "number"
+                example: 100
+              category:
+                type: "string"
+                example: "Category 1"
+
+    Quotation:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          example: 1
+        projectId:
+          type: "string"
+          example: 1
+        templateConstructionId:
+          type: "string"
+          example: 1
+        version:
+          type: "number"
+          example: 1
+        createdDate:
+          type: "string"
+          example: "2021-01-01"
+        updatedDate:
+          type: "string"
+          example: "2021-01-01"
+        status:
+          type: "string"
+          example: "PENDING"
+        reason:
+          type: "string"
+          example: "Reason 1"
+
+    QuotationDetail:
+      allOf:
+        - $ref: "#/components/schemas/Quotation"
+        - type: "object"
+          properties:
             services:
               type: array
               items:
@@ -1705,6 +1795,21 @@ components:
                   id:
                     type: "string"
                     example: 1
+                  name:
+                    type: "string"
+                    example: "Service 1"
+                  description:
+                    type: "string"
+                    example: "Description 1"
+                  price:
+                    type: "number"
+                    example: 100
+                  unit:
+                    type: "string"
+                    example: "cm"
+                  type:
+                    type: "string"
+                    example: "Type 1"
                   quantity:
                     type: "number"
                     example: 1
@@ -1715,166 +1820,76 @@ components:
                     type: "string"
                     example: "Category 1"
             equipments:
-                type: array
-                items:
-                  type: "object"
-                  properties:
-                    id:
-                      type: "string"
-                      example: 1
-                    quantity:
-                      type: "number"
-                      example: 1
-                    note:
-                      type: "string"
-                      example: "Note 1"
-                    price:
-                      type: "number"
-                      example: 100
-                    category:
-                      type: "string"
-                      example: "Category 1"
-               
-              
-    Quotation:
-        type: "object"
-        properties:
-            id:
-                type: "string"
-                example: 1
-            projectId:
-                type: "string"
-                example: 1
-            templateConstructionId:
-                type: "string"
-                example: 1
-            version:
-                type: "number"
-                example: 1
-            createdDate:
-                type: "string"
-                example: "2021-01-01"
-            updatedDate:
-                type: "string"
-                example: "2021-01-01"
-            status:
-                type: "string"
-                example: "PENDING"
-            reason:
-                type: "string"
-                example: "Reason 1"
-          
-    QuotationDetail:
-        allOf:
-            - $ref: "#/components/schemas/Quotation"
-            - type: "object"
-              properties:
-                    services:
-                        type: array
-                        items:
-                            type: "object"
-                            properties:
-                                id:
-                                    type: "string"
-                                    example: 1
-                                name:
-                                    type: "string"
-                                    example: "Service 1"
-                                description:
-                                    type: "string"
-                                    example: "Description 1"
-                                price:
-                                    type: "number"
-                                    example: 100
-                                unit:
-                                    type: "string"
-                                    example: "cm"
-                                type:
-                                    type: "string"
-                                    example: "Type 1"
-                                quantity:
-                                    type: "number"
-                                    example: 1
-                                note:
-                                    type: "string"
-                                    example: "Note 1"
-                                category:
-                                    type: "string"
-                                    example: "Category 1"
-                    equipments:
-                        type: "array"
-                        items:
-                            type: "object"
-                            properties:
-                                id:
-                                    type: "string"
-                                    example: 1
-                                name:
-                                    type: "string"
-                                    example: "Equipment 1"
-                                description:
-                                    type: "string"
-                                    example: "Description 1"
-                                price:
-                                    type: "number"
-                                    example: 100
-                                quantity:
-                                    type: "number"
-                                    example: 1
-                                note:
-                                    type: "string"
-                                    example: "Note 1"
-                                category:
-                                    type: "string"
-                                    example: "Category 1"
-    AssignConsultation: 
-        type: "object"
-        properties:
-            staffId:
-                type: "string"
-                example: 1
+              type: "array"
+              items:
+                type: "object"
+                properties:
+                  id:
+                    type: "string"
+                    example: 1
+                  name:
+                    type: "string"
+                    example: "Equipment 1"
+                  description:
+                    type: "string"
+                    example: "Description 1"
+                  price:
+                    type: "number"
+                    example: 100
+                  quantity:
+                    type: "number"
+                    example: 1
+                  note:
+                    type: "string"
+                    example: "Note 1"
+                  category:
+                    type: "string"
+                    example: "Category 1"
+    AssignConsultation:
+      type: "object"
+      properties:
+        staffId:
+          type: "string"
+          example: 1
     StaffCreate:
-        type: "object"
-        properties:
-            fullName:
-                type: "string"
-                example: "Staff 1"
-            email:
-                type: "string"
-                example: ""
-            phone:
-                type: "string"
-                example: "0123456789"
-            password:
-                type: "string"
-                example: "staff123"
-            position:
-                type: "string"
-                example: "Staff"
-    Staff: 
-        type: "object"
-        properties:
-            id:
-                type: "string"
-                example: 1
-            fullName:
-                type: "string"
-                example: "Staff 1"
-            email:
-                type: "string"
-                example: ""
-            phone:
-                type: "string"
-                example: "0123456789"
-            position:
-                type: "string"
-                example: "Staff"
-            isActive:
-                type: "boolean"
-                example: true
-            avatar:
-                type: "string"
-                example: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaotZTcu1CLMGOJMDl-f_LYBECs7tqwhgpXA&s"
-
-
-  
+      type: "object"
+      properties:
+        fullName:
+          type: "string"
+          example: "Staff 1"
+        email:
+          type: "string"
+          example: ""
+        phone:
+          type: "string"
+          example: "0123456789"
+        password:
+          type: "string"
+          example: "staff123"
+        position:
+          type: "string"
+          example: "Staff"
+    Staff:
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          example: 1
+        fullName:
+          type: "string"
+          example: "Staff 1"
+        email:
+          type: "string"
+          example: ""
+        phone:
+          type: "string"
+          example: "0123456789"
+        position:
+          type: "string"
+          example: "Staff"
+        isActive:
+          type: "boolean"
+          example: true
+        avatar:
+          type: "string"
+          example: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaotZTcu1CLMGOJMDl-f_LYBECs7tqwhgpXA&s"
